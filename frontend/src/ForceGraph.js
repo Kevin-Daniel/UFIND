@@ -50,7 +50,7 @@ const ForceGraph = () => {
       .selectAll(".node")
       .data(nodes)
       .join("circle")
-      .attr("r", function(d) { return d.id.length; })
+      .attr("r", function(d) { return 50; })
       .classed("node", true)
       .classed("fixed", (d) => d.fx !== undefined);
 
@@ -87,7 +87,7 @@ const ForceGraph = () => {
 
     const simulation = d3
       .forceSimulation(nodes)
-      .force("link", forceLink)
+      .force("link", forceLink.distance(200))
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2))
       .on("tick", tick);
