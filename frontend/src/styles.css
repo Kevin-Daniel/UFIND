@@ -1,0 +1,23 @@
+body {
+    padding: 0px;
+    margin: 0px;
+  }
+  h6 {
+    padding: 5px 0px 5px 5px;
+    margin: 0px;
+  }
+  
+  .node {
+    /* fill: green; */
+    stroke: blue;
+    stroke-opacity: inherit;
+    stroke-width: 2px;
+  }
+  
+  .link {
+    background-color: red;
+    stroke: blue;
+    stroke-opacity: inherit;
+    stroke-width: 2px;
+  }
+  
