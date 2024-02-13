@@ -5,49 +5,34 @@ import './App.css';
 function App() {
 const [data] = useState([25, 50, 35, 15, 94, 10]);
 const svgRef = useRef();
+var graph = ({
+  nodes: Array.from({length: 13}, () => ({})),
+  links: [
+    {source: 0, target: 1},
+    {source: 1, target: 2}
+  ]
+})
 
 useEffect(() => {
   // setting up svg
-  const w = 400;
-  const h = 100;
-  const svg = d3.select(svgRef.current)
-    .attr('width', w)
-    .attr('height', h)
-    .style('background', '#d3d3d3')
-    .style('margin-top', '50')
-    .style('overflow', 'visible');
+  const width = 400;
+  const height = 200;
+  const svg = d3.create("svg").attr("viewBox", [0, 0, width, height]),
+  link = svg
+    .selectAll(".link")
+    .data(graph.links)
+    .join("link")
+    .classed("link", true),
+  node = svg
+    .selectAll(".node")
+    .data(graph.nodes)
+    .join("circle")
+    .attr("r", 12)
+    .classed("node", true)
+    .classed("fixed", d => d.fx !== undefined);
 
-  // setting the scaling
-  const xScale = d3.scaleLinear()
-    .domain([0, data.length - 1])
-    .range([0, w]);
-  const yScale = d3.scaleLinear()
-    .domain([0, h])
-    .range([h, 0]);
-  const generateScaledLine = d3.line()
-    .x((d, i) => xScale(i))
-    .y(yScale)
-    .curve(d3.curveCardinal);
+  return svg.node();
 
-  // setting the axes
-  const xAxis = d3.axisBottom(xScale)
-    .ticks(data.length)
-    .tickFormat(i => i + 1);
-  const yAxis = d3.axisLeft(yScale)
-    .ticks(5);
-  svg.append('g')
-    .call(xAxis)
-    .attr('transform', `translate(0, ${h})`);
-  svg.append('g')
-    .call(yAxis);
-
-  // setting up the data for the svg
-  svg.selectAll('.line')
-    .data([data])
-    .join('path')
-      .attr('d', d=> generateScaledLine(d))
-      .attr('fill', 'none')
-      .attr('stroke', 'black');
 }, [data]);
 
   return (
