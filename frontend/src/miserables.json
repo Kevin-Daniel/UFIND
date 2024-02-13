@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "id": "Computer Science",
+      "group": 1
+    },
+    {
+      "id": "Computer Engineering",
+      "group": 1
+    },
+    {
+      "id": "Data Science",
+      "group": 1
+    },
+    {
+      "id": "Digital Arts and Sciences",
+      "group": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "Computer Science",
+      "target": "Computer Engineering",
+      "value": 100
+    },
+    {
+      "source": "Computer Science",
+      "target": "Data Science",
+      "value": 10
+    },
+    {
+      "source": "Computer Science",
+      "target": "Digital Arts and Sciences",
+      "value": 10
+    }
+  ],
+  "links2": [
+    {
+      "source": "Computer Engineering",
+      "target": "Computer Science",
+      "value": 100
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "Data Science",
+      "value": 10
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "Digital Arts and Sciences",
+      "value": 10
+    }
+  ]
+}
