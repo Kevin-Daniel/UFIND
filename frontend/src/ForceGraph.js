@@ -18,9 +18,11 @@ const ForceGraph = () => {
     const nodeId = (d) => d.id;
     const linkSource = ({ source }) => source; // given d in links, returns a node identifier string
     const linkTarget = ({ target }) => target; // given d in links, returns a node identifier string
+    const linkValue = ({ value }) => value;
     const N = d3.map(nodes, nodeId).map(intern);
     const LS = d3.map(links, linkSource).map(intern);
     const LT = d3.map(links, linkTarget).map(intern);
+    const LV = d3.map(links, linkValue).map(intern);
     const nodeGroup = (d) => d.group;
     const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);
     const colors = d3.schemeTableau10; // an array of color strings, for the node groups
@@ -29,7 +31,8 @@ const ForceGraph = () => {
     nodes = d3.map(data.nodes, (_, i) => ({ id: N[i] }));
     links = d3.map(data.links, (_, i) => ({
       source: LS[i],
-      target: LT[i]
+      target: LT[i],
+      value: LV[i]
     }));
 
     //2
@@ -79,7 +82,19 @@ const ForceGraph = () => {
       .selectAll(".node")
       .data(nodes)
       .join("circle")
-      .attr("r", function(d) { return 50; })
+      .attr("r", function(dat, index, n) { 
+        var linkItem = links.find(function(link) {
+          return link.target == dat.id;
+      });
+      if(linkItem){
+        console.log(linkItem);
+        console.log("value " + linkItem.value);
+        return linkItem.value;
+      }
+      else {
+        return 50;
+      }
+    })
       .classed("node", true)
       .classed("fixed", (d) => d.fx !== undefined)
       .on("click", click);
@@ -100,7 +115,7 @@ const ForceGraph = () => {
       var processed_link = createLinks(linkdata);
       link.data(processed_link);
       forceLink = d3.forceLink(linkdata).id(({ index: i }) => N[i]);
-      simulation.force("link", forceLink.distance(200));
+      simulation.force("link", forceLink.distance(function(d) {return 1 / d.value * 2000;}));
     }
 
     function linkDistance(d) {

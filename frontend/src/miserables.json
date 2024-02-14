@@ -21,17 +21,17 @@
     {
       "source": "Computer Science",
       "target": "Computer Engineering",
-      "value": 100
+      "value": 40
     },
     {
       "source": "Computer Science",
       "target": "Data Science",
-      "value": 10
+      "value": 30
     },
     {
       "source": "Computer Science",
       "target": "Digital Arts and Sciences",
-      "value": 10
+      "value": 30
     }
   ],
   "links2": [
