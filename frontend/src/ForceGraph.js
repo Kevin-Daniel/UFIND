@@ -48,15 +48,18 @@ const ForceGraph = () => {
     }));*/
 
     function createLinks(linkdata) {
-      const linkSource2 = ({ source }) => source; // given d in links, returns a node identifier string
-      const linkTarget2 = ({ target }) => target; // given d in links, returns a node identifier string
-      const LS2 = d3.map(linkdata, linkSource2).map(intern);
-      const LT2 = d3.map(linkdata, linkTarget2).map(intern);
+      var linkSource2 = ({ source }) => source; // given d in links, returns a node identifier string
+      var linkTarget2 = ({ target }) => target; // given d in links, returns a node identifier string
+      var linkValue2 = ({ value }) => value;
+      var LS2 = d3.map(linkdata, linkSource2).map(intern);
+      var LT2 = d3.map(linkdata, linkTarget2).map(intern);
+      var LV2 = d3.map(linkdata, linkValue2).map(intern);
   
       // Replace the input nodes and links with mutable objects for the simulation.
       let result = d3.map(linkdata, (_, i) => ({
         source: LS2[i],
-        target: LT2[i]
+        target: LT2[i],
+        value: LV2[i]
       }));
 
       return result;
@@ -84,7 +87,7 @@ const ForceGraph = () => {
       .join("circle")
       .attr("r", function(dat, index, n) { 
         var linkItem = links.find(function(link) {
-          return link.target == dat.id;
+          return link.target == dat.id || link.target.id == dat.id;
       });
       if(linkItem){
         console.log(linkItem);
@@ -113,9 +116,24 @@ const ForceGraph = () => {
 
     function switchLinks(linkdata) {
       var processed_link = createLinks(linkdata);
+      node.attr("r", function(dat, index, n) { 
+        var linkItem = processed_link.find(function(link) {
+          return link.target == dat.id || link.target.id == dat.id;
+      });
+      if(linkItem){
+        console.log(linkItem);
+        console.log("value " + linkItem.value);
+        return linkItem.value;
+      }
+      else {
+        console.log("fail");
+        return 50;
+      }
+    })
+
       link.data(processed_link);
       forceLink = d3.forceLink(linkdata).id(({ index: i }) => N[i]);
-      simulation.force("link", forceLink.distance(function(d) {return 1 / d.value * 2000;}));
+      simulation.force("link", forceLink.distance(function(d) {return d.value * 2;}));
     }
 
     function linkDistance(d) {

@@ -43,12 +43,12 @@
     {
       "source": "Computer Engineering",
       "target": "Data Science",
-      "value": 10
+      "value": 100
     },
     {
       "source": "Computer Engineering",
       "target": "Digital Arts and Sciences",
-      "value": 10
+      "value": 200
     }
   ]
 }
