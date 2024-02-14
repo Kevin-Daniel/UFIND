@@ -12,62 +12,35 @@ const ForceGraph = () => {
   const height = 450; // outer height, in pixels
   let nodes = data.nodes;
   let links = data.links;
-  let links2 = data.links2;
 
   const ref = useD3((svg) => {
     const nodeId = (d) => d.id;
-    const linkSource = ({ source }) => source; // given d in links, returns a node identifier string
-    const linkTarget = ({ target }) => target; // given d in links, returns a node identifier string
-    const linkValue = ({ value }) => value;
     const N = d3.map(nodes, nodeId).map(intern);
-    const LS = d3.map(links, linkSource).map(intern);
-    const LT = d3.map(links, linkTarget).map(intern);
-    const LV = d3.map(links, linkValue).map(intern);
     const nodeGroup = (d) => d.group;
     const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);
     const colors = d3.schemeTableau10; // an array of color strings, for the node groups
 
     // Replace the input nodes and links with mutable objects for the simulation.
     nodes = d3.map(data.nodes, (_, i) => ({ id: N[i] }));
-    links = d3.map(data.links, (_, i) => ({
-      source: LS[i],
-      target: LT[i],
-      value: LV[i]
-    }));
-
-    //2
-    /*const linkSource2 = ({ source }) => source; // given d in links, returns a node identifier string
-    const linkTarget2 = ({ target }) => target; // given d in links, returns a node identifier string
-    const LS2 = d3.map(links2, linkSource2).map(intern);
-    const LT2 = d3.map(links2, linkTarget2).map(intern);
-
-    // Replace the input nodes and links with mutable objects for the simulation.
-    links2 = d3.map(data.links2, (_, i) => ({
-      source: LS2[i],
-      target: LT2[i]
-    }));*/
+    links = createLinks(data["Computer Science"]); //default
 
     function createLinks(linkdata) {
-      var linkSource2 = ({ source }) => source; // given d in links, returns a node identifier string
-      var linkTarget2 = ({ target }) => target; // given d in links, returns a node identifier string
-      var linkValue2 = ({ value }) => value;
-      var LS2 = d3.map(linkdata, linkSource2).map(intern);
-      var LT2 = d3.map(linkdata, linkTarget2).map(intern);
-      var LV2 = d3.map(linkdata, linkValue2).map(intern);
+      var linkSource = ({ source }) => source; // given d in links, returns a node identifier string
+      var linkTarget = ({ target }) => target; // given d in links, returns a node identifier string
+      var linkValue = ({ value }) => value;
+      var LS = d3.map(linkdata, linkSource).map(intern);
+      var LT = d3.map(linkdata, linkTarget).map(intern);
+      var LV = d3.map(linkdata, linkValue).map(intern);
   
       // Replace the input nodes and links with mutable objects for the simulation.
       let result = d3.map(linkdata, (_, i) => ({
-        source: LS2[i],
-        target: LT2[i],
-        value: LV2[i]
+        source: LS[i],
+        target: LT[i],
+        value: LV[i]
       }));
 
       return result;
     }
-
-    console.log("links: ", links);
-    console.log("links2: ", links2);
-    console.log("nodes: ", nodes);
 
     svg
       .attr("viewBox", [0, 0, width, height])
@@ -115,23 +88,19 @@ const ForceGraph = () => {
     svg.node();
 
     function switchLinks(linkdata) {
-      var processed_link = createLinks(linkdata);
+      links = createLinks(linkdata);
       node.attr("r", function(dat, index, n) { 
-        var linkItem = processed_link.find(function(link) {
+        var linkItem = links.find(function(link) {
           return link.target == dat.id || link.target.id == dat.id;
       });
       if(linkItem){
-        console.log(linkItem);
-        console.log("value " + linkItem.value);
         return linkItem.value;
-      }
-      else {
-        console.log("fail");
+      } else {
         return 50;
       }
     })
 
-      link.data(processed_link);
+      link.data(links);
       forceLink = d3.forceLink(linkdata).id(({ index: i }) => N[i]);
       simulation.force("link", forceLink.distance(function(d) {return d.value * 2;}));
     }
@@ -146,7 +115,8 @@ const ForceGraph = () => {
     function click(event, d) {
       d.fx = width / 2;
       d.fy = height / 2;
-      switchLinks(init ? data.links2 : data.links);
+      //switchLinks(init ? data.links2 : data.links);
+      switchLinks(data[d.id]);
       if(previous != null) {
         previous.fx = null;
         previous.fy = null;
