@@ -1,17 +1,21 @@
 import { useD3 } from "./useD3";
 import React from "react";
 import * as d3 from "d3";
-import data from "./miserables";
+import data from "./data.json";
 
 function clamp(x, lo, hi) {
   return x < lo ? lo : x > hi ? hi : x;
 }
 
 const ForceGraph = () => {
-  const width = 800; // outer width, in pixels
-  const height = 450; // outer height, in pixels
+  const width = 1600; // outer width, in pixels
+  const height = 900; // outer height, in pixels
   let nodes = data.nodes;
   let links = data.links;
+
+  const centerNodeSize = 100;
+  const radiusMultiplier = 15;
+  const distanceMultiplier = 50;
 
   const ref = useD3((svg) => {
     const nodeId = (d) => d.id;
@@ -63,12 +67,10 @@ const ForceGraph = () => {
           return link.target == dat.id || link.target.id == dat.id;
       });
       if(linkItem){
-        console.log(linkItem);
-        console.log("value " + linkItem.value);
-        return linkItem.value;
+        return linkItem.value * radiusMultiplier;
       }
       else {
-        return 50;
+        return centerNodeSize;
       }
     })
       .classed("node", true)
@@ -94,15 +96,15 @@ const ForceGraph = () => {
           return link.target == dat.id || link.target.id == dat.id;
       });
       if(linkItem){
-        return linkItem.value;
+        return linkItem.value * radiusMultiplier;
       } else {
-        return 50;
+        return centerNodeSize;
       }
     })
 
       link.data(links);
       forceLink = d3.forceLink(linkdata).id(({ index: i }) => N[i]);
-      simulation.force("link", forceLink.distance(function(d) {return d.value * 2;}));
+      simulation.force("link", forceLink.distance(function(d) {return (10 - d.value) * distanceMultiplier;}));
     }
 
     function linkDistance(d) {
@@ -154,7 +156,7 @@ const ForceGraph = () => {
 
     var simulation = d3
       .forceSimulation(nodes)
-      .force("link", forceLink.distance(200))
+      .force("link", forceLink.distance(function(d) {return (10 - d.value) * distanceMultiplier;}))
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2))
       .on("tick", tick);
@@ -180,7 +182,7 @@ const ForceGraph = () => {
         .attr("x2", (d) => d.target.x)
         .attr("y2", (d) => d.target.y);
       node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
-      label.attr("x", (d) => d.x).attr("y", (d) => d.y - 10);
+      label.attr("x", (d) => d.x).attr("y", (d) => d.y);
     }
 
     function intern(value) {

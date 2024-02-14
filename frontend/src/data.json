@@ -10,79 +10,125 @@
     },
     {
       "id": "Data Science",
-      "group": 1
+      "group": 2
     },
     {
       "id": "Digital Arts and Sciences",
       "group": 1
+    },
+    {
+      "id": "English",
+      "group": 2
     }
   ],
   "Computer Science": [
     {
       "source": "Computer Science",
       "target": "Computer Engineering",
-      "value": 40
+      "value": 4
     },
     {
       "source": "Computer Science",
       "target": "Data Science",
-      "value": 30
+      "value": 3
     },
     {
       "source": "Computer Science",
       "target": "Digital Arts and Sciences",
-      "value": 30
+      "value": 3
+    },
+    {
+      "source": "Computer Science",
+      "target": "English",
+      "value": 1
     }
   ],
   "Computer Engineering": [
     {
       "source": "Computer Engineering",
       "target": "Computer Science",
-      "value": 100
+      "value": 5
     },
     {
       "source": "Computer Engineering",
       "target": "Data Science",
-      "value": 100
+      "value": 5
     },
     {
       "source": "Computer Engineering",
       "target": "Digital Arts and Sciences",
-      "value": 200
+      "value": 3
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "English",
+      "value": 1
     }
   ],
   "Data Science": [
     {
       "source": "Data Science",
       "target": "Computer Engineering",
-      "value": 70
+      "value": 4
     },
     {
       "source": "Data Science",
       "target": "Computer Science",
-      "value": 60
+      "value": 5
     },
     {
       "source": "Data Science",
       "target": "Digital Arts and Sciences",
-      "value": 100
+      "value": 3
+    },
+    {
+      "source": "Data Science",
+      "target": "English",
+      "value": 1
     }
   ],
   "Digital Arts and Sciences": [
     {
       "source": "Digital Arts and Sciences",
       "target": "Computer Engineering",
-      "value": 60
+      "value": 4
     },
     {
       "source": "Digital Arts and Sciences",
       "target": "Computer Science",
-      "value": 40
+      "value": 5
     },
     {
       "source": "Digital Arts and Sciences",
       "target": "Data Science",
-      "value": 80
+      "value": 3
+    },
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "English",
+      "value": 1
+    }
+  ],
+  "English": [
+    {
+      "source": "English",
+      "target": "Computer Engineering",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Computer Science",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Data Science",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Digital Arts and Sciences",
+      "value": 1
     }
   ]
 }
