@@ -1,7 +1,9 @@
 import "./styles.css";
 import styled from "styled-components";
 import { CssBaseline } from "@mui/material";
-import ForceGraph from "./ForceGraph";
+import ForceGraph from "./Components/ForceGraph";
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from './Pages/Home';
 
 const Main = styled("main")`
   display: flex;
@@ -10,25 +12,13 @@ const Main = styled("main")`
 
 export default function App() {
   return (
-    <Main>
-      <CssBaseline />
-      {/*       <Sidebar>
-        <ToolBox />
-        <EditorBox
-          defaultValue={JSON.stringify(miserables.nodes, null, 2)}
-          title="Nodes"
-        />
-        <EditorBox
-          defaultValue={JSON.stringify(miserables.links, null, 2)}
-          title="Links"
-        />
-      </Sidebar> */}
-
-      <ForceGraph />
-
-      {/*       <GraphItem>
-        <ForceGraph />
-      </GraphItem> */}
-    </Main>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/force" element={<ForceGraph />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }

@@ -3,8 +3,8 @@ import '../output.css';
 
 const Header = () => {
     return (
-        <header className="bg-slate-100 w-full h-[10vh] absolute top-0 flex items-center justify-center" >
-            <p>Project</p>
+        <header className="bg-[#285797] w-full h-[10vh] absolute top-0 flex items-center justify-center text-white" >
+            <p className="text-4xl">Project Name</p>
         </header>
     );
 };
