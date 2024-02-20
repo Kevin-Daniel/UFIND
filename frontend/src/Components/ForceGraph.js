@@ -9,8 +9,23 @@ function clamp(x, lo, hi) {
   return x < lo ? lo : x > hi ? hi : x;
 }
 
+
+
 const ForceGraph = () => {
-  //const [program, setProgram] = useState("Computer Science")
+  const [program, setProgram] = useState(null)
+
+  useEffect(() => {
+      fetchProgram("Computer Science")
+  }, [])
+
+  const fetchProgram = async (name) => {
+    const response = await fetch(`/api/programs/${name}`)
+    const json = await response.json()
+    console.log(json)
+    if (response.ok) {
+        setProgram(json["0"])
+    }
+  }
 
   const width = 1600; // outer width, in pixels
   const height = 800; // outer height, in pixels
@@ -206,6 +221,7 @@ const ForceGraph = () => {
 
 
     function click(event, d) {
+      fetchProgram(d.id);
       d.fx = width / 2;
       d.fy = height / 2;
       switchLinks(data[d.id])
@@ -295,7 +311,7 @@ const ForceGraph = () => {
   return (
     <div className="flex bg-[#D3D3D3] absolute top-[10vh] bottom-[10vh] m-5 rounded-2xl">
       <div className="w-1/4 p-5">
-        <Info doIt={test} />
+        <Info doIt={test} fetchProgram={fetchProgram} program={program} />
       </div>
       <svg
         ref={ref}

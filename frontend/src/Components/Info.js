@@ -2,20 +2,6 @@ import { useEffect, useState } from "react"
 import '../output.css'
 
 const Info = props => {
-    const [program, setProgram] = useState(null)
-
-    const fetchProgram = async (name) => {
-        const response = await fetch(`/api/programs/${name}`)
-        const json = await response.json()
-        console.log(json)
-        if (response.ok) {
-            setProgram(json["0"])
-        }
-    }
-
-    useEffect(() => {
-        fetchProgram("Computer Science")
-    }, [])
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -25,11 +11,11 @@ const Info = props => {
 
     const handleSearch = () => {
         onSearch(searchTerm);
-        props.doIt(searchTerm);
+        //props.doIt(searchTerm);
     };
 
     const onSearch = (search) => {
-        fetchProgram(search)
+        props.fetchProgram(search)
     }
 
     const listCourses = (courses) => {
@@ -49,11 +35,11 @@ const Info = props => {
                 />
                 <button className="bg-white border-black border-2" onClick={handleSearch}>Search</button>
             </div><br/>
-            {program &&
+            {props.program &&
                 <div>
-                    <p><b>{program.name}</b></p>
+                    <p><b>{props.program.name}</b></p>
                     Required Courses:
-                    {listCourses(program.required_courses)}
+                    {listCourses(props.program.required_courses)}
                 </div>
             }
         </div>
