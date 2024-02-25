@@ -36,10 +36,25 @@ useEffect(() => {
 }, [data]);
 
   return (
-    <div className="App">
-      <svg ref={svgRef}></svg>
-    </div>
+    <Main>
+      <CssBaseline />
+      {/*       <Sidebar>
+        <ToolBox />
+        <EditorBox
+          defaultValue={JSON.stringify(miserables.nodes, null, 2)}
+          title="Nodes"
+        />
+        <EditorBox
+          defaultValue={JSON.stringify(miserables.links, null, 2)}
+          title="Links"
+        />
+      </Sidebar> */}
+
+      <ForceGraph />
+
+      {/*       <GraphItem>
+        <ForceGraph />
+      </GraphItem> */}
+    </Main>
   );
 }
-
-export default App;
