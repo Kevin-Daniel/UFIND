@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react"
+import { useProgramContext } from "../hooks/useProgramContext"
 import '../output.css'
 
 const Info = props => {
-    const [program, setProgram] = useState(null)
-
-    const fetchProgram = async (name) => {
-        const response = await fetch(`/api/programs/${name}`)
-        const json = await response.json()
-        console.log(json)
-        if (response.ok) {
-            setProgram(json["0"])
-        }
-    }
-
-    useEffect(() => {
-        fetchProgram("Computer Science")
-    }, [])
+    const {program, dispatch} = useProgramContext()
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -25,11 +13,10 @@ const Info = props => {
 
     const handleSearch = () => {
         onSearch(searchTerm);
-        props.doIt(searchTerm);
     };
 
     const onSearch = (search) => {
-        fetchProgram(search)
+        props.fetchProgram(search)
     }
 
     const listCourses = (courses) => {

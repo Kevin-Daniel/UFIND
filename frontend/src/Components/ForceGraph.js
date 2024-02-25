@@ -1,5 +1,6 @@
 import { useD3 } from "../useD3";
 import React, { useEffect, useState } from "react";
+import { useProgramContext } from "../hooks/useProgramContext"
 import * as d3 from "d3";
 import data from "../data.json";
 import Info from "./Info";
@@ -10,12 +11,32 @@ function clamp(x, lo, hi) {
 }
 
 const ForceGraph = () => {
-  //const [program, setProgram] = useState("Computer Science")
+  const {program, dispatch} = useProgramContext()
+
+  useEffect(() => {
+      fetchProgram("Computer Science")
+  }, [])
+
+  const fetchProgram = async (name) => {
+    const response = await fetch(`/api/programs/${name}`)
+    const json = await response.json()
+    if (response.ok) {
+        if(label) {
+          label.remove();
+        }
+        dispatch({type: 'SET_PROGRAM', payload: json["0"]})
+        if(program) {
+          console.log("fetch success");
+        }
+    }
+}
+
 
   const width = 1600; // outer width, in pixels
   const height = 800; // outer height, in pixels
   let nodes = data.nodes;
-  let links = data.links;
+  //var links = createLinks(data["Computer Science"]);//data.links;
+  console.log("Executes once");
 
   const centerNodeSize = 100;
   const radiusMultiplier = 15;
@@ -32,6 +53,7 @@ const ForceGraph = () => {
   // https://gist.github.com/mbostock/7555321
   function wrap(text, width) {
     text.each(function () {
+      
       var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
@@ -55,32 +77,47 @@ const ForceGraph = () => {
     });
   }
 
-  function wrap2(text, width) {
-    text.each(function () {
-      console.log("XXX: " + d3.select(this.parentNode.parentNode.parentNode).attr("x"))
+  function wrap2(text, width, links) {
+    text.each(function (d) {
+      var font = 0;
+      var linkItem = links.find(function (link) {
+        return link.target == d.id || link.target.id == d.id;
+      });
+      if (linkItem) {
+        width = linkItem.value * radiusMultiplier;
+        font = linkItem.value * 6;
+      }
+      else {
+        font = 36;
+        width = centerNodeSize;
+      }
+
       var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
         line = [],
         lineNumber = 0,
-        lineHeight = 1.1, // ems
+        lineHeight = font / 32, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
         tspan = text.text(null).append("tspan").attr("y", y).attr("dy", dy + "em");
-
+        var first = true;
       while (word = words.pop()) {
         line.push(word);
         tspan.text(line.join(" "));
         var prev = 0;
+        var sum = tspan.node().getBBox().height;
         if (tspan.node().getComputedTextLength() > width) {
+          var h = tspan.node().getBBox().height;
           var next = tspan.node().getComputedTextLength();
-          console.log("next: " + next)
           line.pop();
           tspan.text(line.join(" "));
           line = [word];
-          tspan = text.append("tspan").attr("dx", -next / 2).attr("y", y).attr("dy", ++lineNumber * lineHeight + "em").text(word);
+          tspan = text.append("tspan").attr("dx", first ? 0 :-next / 2).attr("dy", sum).text(word);
           prev = next;
+          sum += h;
         }
+        first = false;
       }
     });
   }
@@ -109,37 +146,13 @@ const ForceGraph = () => {
       : value;
   }
 
-  function switchLinks(linkdata) {
-    links = createLinks(linkdata);
-    node.attr("r", function (dat, index, n) {
-      var linkItem = links.find(function (link) {
-        return link.target == dat.id || link.target.id == dat.id;
-      });
-      if (linkItem) {
-        return linkItem.value * radiusMultiplier;
-      } else {
-        return centerNodeSize;
-      }
-    })
-    label.style("font-size", function (d) {
-      var linkItem = links.find(function (link) {
-        return link.target == d.id || link.target.id == d.id;
-      });
-      if (linkItem) {
-        return linkItem.value * 6;
-      }
-      else {
-        return 36;
-      }
-    })
-    link.data(links);
-    forceLink = d3.forceLink(linkdata).id(({ index: i }) => N[i]);
-    simulation.force("link", forceLink.distance(function (d) { return (10 - d.value) * distanceMultiplier; }));
-  }
-
-  
-
   const ref = useD3((svg) => {
+    var links = createLinks(data["Computer Science"]);
+    if(program) {
+        links = createLinks(data[program.name])
+    }
+    
+    console.log("From the top")
     const nodeId = (d) => d.id;
     N = d3.map(nodes, nodeId).map(intern);
     const nodeGroup = (d) => d.group;
@@ -148,8 +161,8 @@ const ForceGraph = () => {
 
     // Replace the input nodes and links with mutable objects for the simulation.
     nodes = d3.map(data.nodes, (_, i) => ({ id: N[i] }));
-    links = createLinks(data["Computer Science"]); //default
-
+    //default
+    console.log(nodes);
     svg
       .attr("viewBox", [0, 0, width, height])
       .attr("width", width)
@@ -177,16 +190,17 @@ const ForceGraph = () => {
           return centerNodeSize;
         }
       })
+      
       .classed("node", true)
       .classed("fixed", (d) => d.fx !== undefined)
-      .on("click", click);
-
+      .on("click", click)
+    
     label = svg.selectAll(".mytext")
       .data(nodes)
       .enter()
       .append("text")
       .text(function (d) { return d.id; })
-      .style("text-anchor", "middle")
+      .style("text-anchor", "left") //middle
       .style("fill", "#000000")
       .style("font-family", "Arial")
       .style("font-size", function (d) {
@@ -200,23 +214,26 @@ const ForceGraph = () => {
           return 36;
         }
       })
-    //.call(wrap2, 100);
+      .call(wrap2, 100, links);
 
     svg.node();
 
 
-    function click(event, d) {
-      d.fx = width / 2;
-      d.fy = height / 2;
-      switchLinks(data[d.id])
-      if (previous != null) {
-        previous.fx = null;
-        previous.fy = null;
-      }
-      previous = d;
-      simulation.alpha(1).restart();
+
+    for (var i in nodes) {
+        if(program && nodes[i].id == program.name){
+          nodes[i].fx = width / 2;
+          nodes[i].fy = height / 2;
+        }
     }
 
+    function click(event, d) {
+      //label.remove();
+      console.log("Fetching: " + d.id)
+      fetchProgram(d.id)
+    }
+
+    console.log("This executes");
     // Construct the scales.
     let nodeGroups = d3.sort(G);
     console.log(nodeGroups);
@@ -236,7 +253,7 @@ const ForceGraph = () => {
 
     if (G)
       node.attr("fill", ({ index: i }) => {
-        console.log("index: ", i);
+        //console.log("index: ", i);
         return color(G[i]);
       });
 
@@ -275,6 +292,7 @@ const ForceGraph = () => {
     }
   });
 
+  //remove soon
   const test = (programName) => {
     var nodeItem = nodes.find(function (littleN) {
       return littleN.id == programName;
@@ -283,7 +301,6 @@ const ForceGraph = () => {
     nodeItem.fx = width / 2;
     nodeItem.fy = height / 2;
 
-    switchLinks(data[programName]);
     if (previous != null) {
       previous.fx = null;
       previous.fy = null;
@@ -295,7 +312,7 @@ const ForceGraph = () => {
   return (
     <div className="flex bg-[#D3D3D3] absolute top-[10vh] bottom-[10vh] m-5 rounded-2xl">
       <div className="w-1/4 p-5">
-        <Info doIt={test} />
+        <Info fetchProgram={fetchProgram} />
       </div>
       <svg
         ref={ref}
