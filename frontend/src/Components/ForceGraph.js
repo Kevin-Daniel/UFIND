@@ -35,8 +35,6 @@ const ForceGraph = () => {
   const width = 1600; // outer width, in pixels
   const height = 800; // outer height, in pixels
   let nodes = data.nodes;
-  //var links = createLinks(data["Computer Science"]);//data.links;
-  console.log("Executes once");
 
   const centerNodeSize = 100;
   const radiusMultiplier = 15;
@@ -50,34 +48,7 @@ const ForceGraph = () => {
   var N;
   var previous;
 
-  // https://gist.github.com/mbostock/7555321
-  function wrap(text, width) {
-    text.each(function () {
-      
-      var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr("y"),
-        dx = parseFloat(text.attr("dx")),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", dx).attr("y", y).attr("dy", dy + "em");
-      while (word = words.pop()) {
-        line.push(word);
-        tspan.text(line.join(" "));
-        if (tspan.node().getComputedTextLength() > width) {
-          line.pop();
-          tspan.text(line.join(" "));
-          line = [word];
-          tspan = text.append("tspan").attr("x", dx).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-        }
-      }
-    });
-  }
-
-  function wrap2(text, width, links) {
+  function wrap(text, width, links) {
     text.each(function (d) {
       var font = 0;
       var linkItem = links.find(function (link) {
@@ -91,34 +62,39 @@ const ForceGraph = () => {
         font = 36;
         width = centerNodeSize;
       }
-
+      
       var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = font / 32, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
         tspan = text.text(null).append("tspan").attr("y", y).attr("dy", dy + "em");
-        var first = true;
-      while (word = words.pop()) {
-        line.push(word);
-        tspan.text(line.join(" "));
         var prev = 0;
-        var sum = tspan.node().getBBox().height;
-        if (tspan.node().getComputedTextLength() > width) {
-          var h = tspan.node().getBBox().height;
-          var next = tspan.node().getComputedTextLength();
-          line.pop();
-          tspan.text(line.join(" "));
-          line = [word];
-          tspan = text.append("tspan").attr("dx", first ? 0 :-next / 2).attr("dy", sum).text(word);
-          prev = next;
-          sum += h;
+        var lines = 0;
+        tspan.text("hello")
+        const h = tspan.node().getBBox().height;
+        var first = true;
+        var firstElem;
+        var max = 0;
+        while (word = words.pop()) {
+          lines++;
+          tspan.text(word)
+          var current = tspan.node().getComputedTextLength();
+          if(current > max) {
+            max = current;
+          }
+          if(first) {
+            firstElem = tspan;
+            tspan.attr("dx", -current / 2);
+            first = false;
+          } else {
+            tspan.attr("dx", -prev / 2 - current / 2);
+          }
+          
+          tspan = text.append("tspan").attr("dy", h)
+          prev = current;
         }
-        first = false;
-      }
+        firstElem.attr("dx", -max / 2);
     });
   }
 
@@ -179,6 +155,7 @@ const ForceGraph = () => {
       .selectAll(".node")
       .data(nodes)
       .join("circle")
+      .attr("id", function(d) { return "node_" + d.id.replaceAll(" ", "_"); })
       .attr("r", function (dat, index, n) {
         var linkItem = links.find(function (link) {
           return link.target == dat.id || link.target.id == dat.id;
@@ -194,11 +171,14 @@ const ForceGraph = () => {
       .classed("node", true)
       .classed("fixed", (d) => d.fx !== undefined)
       .on("click", click)
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout)
     
     label = svg.selectAll(".mytext")
       .data(nodes)
       .enter()
       .append("text")
+      .attr("id", function(d) { return "text_" + d.id.replaceAll(" ", "_"); })
       .text(function (d) { return d.id; })
       .style("text-anchor", "left") //middle
       .style("fill", "#000000")
@@ -214,10 +194,31 @@ const ForceGraph = () => {
           return 36;
         }
       })
-      .call(wrap2, 100, links);
+      .call(wrap, 25, links);
 
     svg.node();
+    
+    function mouseover(event, d) {
+      var elem = d3.select("#text_" + d.id.replaceAll(" ", "_"))
+      if(Number(elem.style("font-size").replace("px", "")) < 12){
+        svg.append("text")
+        .text(elem.text())
+        .attr("id", "large_" + d.id.replaceAll(" ", "_"))
+        .attr("x", elem.attr("x"))
+        .attr("y", elem.attr("y"))
+        .style("text-anchor", "middle") //middle
+        .style("fill", "#000000")
+        .style("font-family", "Arial")
+        .style("font-size", 36)
+      }
+    }
 
+    function mouseout(event, d) {
+      var elem = d3.select("#large_" + d.id.replaceAll(" ", "_"))
+      if(elem) {
+        elem.remove();
+      }
+    }
 
 
     for (var i in nodes) {
@@ -278,7 +279,7 @@ const ForceGraph = () => {
     function dragstart() {
       d3.select(this).classed("fixed", true);
     }
-
+ 
     function dragend(event, d) {
       if (event.active) simulation.alphaTarget(0);
       d.fx = null;
@@ -291,23 +292,6 @@ const ForceGraph = () => {
       simulation.alpha(1).restart();
     }
   });
-
-  //remove soon
-  const test = (programName) => {
-    var nodeItem = nodes.find(function (littleN) {
-      return littleN.id == programName;
-    })
-
-    nodeItem.fx = width / 2;
-    nodeItem.fy = height / 2;
-
-    if (previous != null) {
-      previous.fx = null;
-      previous.fy = null;
-    }
-    previous = nodeItem;
-    simulation.alpha(1).restart();
-  }
 
   return (
     <div className="flex bg-[#D3D3D3] absolute top-[10vh] bottom-[10vh] m-5 rounded-2xl">
