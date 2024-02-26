@@ -1,20 +1,36 @@
 import { useD3 } from "../useD3";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useProgramContext } from "../hooks/useProgramContext"
 import * as d3 from "d3";
-import data from "../data.json";
+import temp from "../data.json";
 import Info from "./Info";
 import "../output.css";
-
+var data = temp;
 function clamp(x, lo, hi) {
   return x < lo ? lo : x > hi ? hi : x;
+}
+
+const fetchData = async () => {
+  const response = await fetch('/api/data')
+  const json = await response.json()
+  if(response.ok) {
+    console.log(json.data);
+    data = json.data;
+  }
+  else {
+    console.log("Error fetching data")
+  }
 }
 
 const ForceGraph = () => {
   const {program, dispatch} = useProgramContext()
 
+  useMemo(()=>{
+    fetchData() //Doesn't want until render is completed 
+  } , [])
+
   useEffect(() => {
-      fetchProgram("Computer Science")
+      fetchProgram("Computer Science (CSE)");
   }, [])
 
   const fetchProgram = async (name) => {
@@ -30,6 +46,8 @@ const ForceGraph = () => {
         }
     }
 }
+
+
 
 
   const width = 1600; // outer width, in pixels
@@ -123,7 +141,7 @@ const ForceGraph = () => {
   }
 
   const ref = useD3((svg) => {
-    var links = createLinks(data["Computer Science"]);
+    var links = createLinks(data["Computer Science (CSE)"]);
     if(program) {
         links = createLinks(data[program.name])
     }
@@ -155,7 +173,7 @@ const ForceGraph = () => {
       .selectAll(".node")
       .data(nodes)
       .join("circle")
-      .attr("id", function(d) { return "node_" + d.id.replaceAll(" ", "_"); })
+      .attr("id", function(d) { return "node_" + d.id.replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""); })
       .attr("r", function (dat, index, n) {
         var linkItem = links.find(function (link) {
           return link.target == dat.id || link.target.id == dat.id;
@@ -178,7 +196,7 @@ const ForceGraph = () => {
       .data(nodes)
       .enter()
       .append("text")
-      .attr("id", function(d) { return "text_" + d.id.replaceAll(" ", "_"); })
+      .attr("id", function(d) { return "text_" + d.id.replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""); })
       .text(function (d) { return d.id; })
       .style("text-anchor", "left") //middle
       .style("fill", "#000000")
@@ -199,11 +217,11 @@ const ForceGraph = () => {
     svg.node();
     
     function mouseover(event, d) {
-      var elem = d3.select("#text_" + d.id.replaceAll(" ", "_"))
+      var elem = d3.select("#text_" + d.id.replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""))
       if(Number(elem.style("font-size").replace("px", "")) < 12){
         svg.append("text")
         .text(elem.text())
-        .attr("id", "large_" + d.id.replaceAll(" ", "_"))
+        .attr("id", "large_" + d.id.replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""))
         .attr("x", elem.attr("x"))
         .attr("y", elem.attr("y"))
         .style("text-anchor", "middle") //middle
@@ -214,7 +232,7 @@ const ForceGraph = () => {
     }
 
     function mouseout(event, d) {
-      var elem = d3.select("#large_" + d.id.replaceAll(" ", "_"))
+      var elem = d3.select("#large_" + d.id.replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""))
       if(elem) {
         elem.remove();
       }

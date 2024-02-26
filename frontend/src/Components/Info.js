@@ -39,8 +39,11 @@ const Info = props => {
             {program &&
                 <div>
                     <p><b>{program.name}</b></p>
-                    Required Courses:
-                    {listCourses(program.required_courses)}
+                    Critical Tracking Courses:
+                    {listCourses(program.critical_tracking)}
+                    <br></br>
+                    Core Courses:
+                    {listCourses(program.core)}
                 </div>
             }
         </div>
