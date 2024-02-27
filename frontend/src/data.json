@@ -1,7 +1,7 @@
 {
   "nodes": [
     {
-      "id": "Computer Science",
+      "id": "Computer Science (CSE)",
       "group": 1
     },
     {
@@ -21,24 +21,24 @@
       "group": 2
     }
   ],
-  "Computer Science": [
+  "Computer Science (CSE)": [
     {
-      "source": "Computer Science",
+      "source": "Computer Science (CSE)",
       "target": "Computer Engineering",
       "value": 4
     },
     {
-      "source": "Computer Science",
+      "source": "Computer Science (CSE)",
       "target": "Data Science",
       "value": 3
     },
     {
-      "source": "Computer Science",
+      "source": "Computer Science (CSE)",
       "target": "Digital Arts and Sciences",
       "value": 3
     },
     {
-      "source": "Computer Science",
+      "source": "Computer Science (CSE)",
       "target": "English",
       "value": 1
     }
@@ -46,7 +46,7 @@
   "Computer Engineering": [
     {
       "source": "Computer Engineering",
-      "target": "Computer Science",
+      "target": "Computer Science (CSE)",
       "value": 5
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "source": "Data Science",
-      "target": "Computer Science",
+      "target": "Computer Science (CSE)",
       "value": 5
     },
     {
@@ -95,7 +95,7 @@
     },
     {
       "source": "Digital Arts and Sciences",
-      "target": "Computer Science",
+      "target": "Computer Science (CSE)",
       "value": 5
     },
     {
@@ -117,7 +117,7 @@
     },
     {
       "source": "English",
-      "target": "Computer Science",
+      "target": "Computer Science (CSE)",
       "value": 1
     },
     {

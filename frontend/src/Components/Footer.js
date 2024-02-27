@@ -4,7 +4,7 @@ import '../output.css';
 const Footer = () => {
     return (
         <div className="bottom-0">
-            <footer className="bg-slate-100 w-full h-[10vh] absolute bottom-0 flex items-center justify-center" >
+            <footer className="bg-[#FFFFFF] w-full h-[10vh] absolute bottom-0 flex items-center justify-center" >
                 <p className="px-[2%]">&copy; 2024 Kevin Daniel</p>
                 <p className="px-[2%]">Privacy Policy</p>
                 <p className="px-[2%]">Terms of Service</p>
