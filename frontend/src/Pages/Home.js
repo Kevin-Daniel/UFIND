@@ -1,11 +1,11 @@
 import '../output.css'
-import ForceGraph from "../Components/ForceGraph"
-import Header from "../Components/Header"
-import Footer from "../Components/Footer"
+import ForceGraph from "../components/ForceGraph"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 const Home = () => {
     return (
-        <div className="w-screen h-screen bg-orange-50">
+        <div className="w-screen h-screen bg-[#F1F1F1]">
             <Header/>
             <div className="flex justify-center">
                 <ForceGraph/>

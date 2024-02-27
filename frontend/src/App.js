@@ -1,9 +1,9 @@
 import "./styles.css";
 import styled from "styled-components";
 import { CssBaseline } from "@mui/material";
-import ForceGraph from "./Components/ForceGraph";
+import ForceGraph from "./components/ForceGraph";
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './pages/Home';
 
 const Main = styled("main")`
   display: flex;
