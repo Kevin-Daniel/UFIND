@@ -4,7 +4,7 @@ import '../output.css';
 const Header = () => {
     return (
         <header className="bg-[#285797] w-full h-[10vh] absolute top-0 flex items-center justify-center text-white" >
-            <p className="text-4xl">Project Name</p>
+            <p className="text-4xl">UFIND</p>
         </header>
     );
 };
