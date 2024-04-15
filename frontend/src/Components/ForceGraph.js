@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useProgramContext } from "../hooks/useProgramContext"
 import * as d3 from "d3";
 import temp from "../data.json";
-import Info from "./Info";
+import InteractionPanel from "./InteractionPanel";
 import "../output.css";
 var data = temp;
 function clamp(x, lo, hi) {
@@ -313,7 +313,7 @@ const ForceGraph = () => {
   return (
     <div className="flex bg-[#D3D3D3] absolute top-[10vh] bottom-[10vh] m-5 rounded-2xl w-[90%] overflow-hidden">
       <div className="w-1/4 p-5">
-        <Info fetchProgram={fetchProgram} />
+        {/*<Info fetchProgram={fetchProgram} />*/<InteractionPanel fetchProgram={fetchProgram}/>}
       </div>
       <svg
         className="rounded-2xl"

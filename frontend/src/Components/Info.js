@@ -25,17 +25,17 @@ const Info = props => {
 
     const beta = (event) => {
         if(event.key === 'Enter') {
-            onSearch(event.target.value);     //[#285797]
+            onSearch(event.target.value);
         }
     }
 
     return (
-        <div className="bg-[#FFFFFF] rounded-2xl h-full w-full pl-5 pt-5 pb-5 border-2 border-black">
-            <div class="max-w-md mx-auto mr-5">
+        <div>
+            <div className="max-w-md mx-auto mr-5">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <div className="relative">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
@@ -51,7 +51,7 @@ const Info = props => {
                 <p className="text-3xl pb-3"><b>{program.name}</b></p>
             }
             {program &&
-                <div className="font-sans h-4/5 overflow-y-scroll">
+                <div className="flex-none h-1/2 font-sans overflow-y-scroll">
                     <span className="text-xl"><b>Critical Tracking Courses:</b></span>
                     <ul className="pl-2">{listCourses(program.critical_tracking)}</ul>
                     <br></br>

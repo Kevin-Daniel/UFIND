@@ -2,15 +2,12 @@ const express = require('express');
 const requireAuth = require('../middleware/requireAuth');
 
 const {
-    generateLinks,
-    generateData
-} = require('../controllers/populateController')
+    getUserCourses,
+    updateUserCourses
+} = require('../controllers/userCoursesController')
 const router = express.Router()
-
-router.post('/links', generateLinks)
-
 router.use(requireAuth);
-
-router.post('/data', generateData)
+router.get('/fetch', getUserCourses)
+router.post('/update', updateUserCourses)
 
 module.exports = router
