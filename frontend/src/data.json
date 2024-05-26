@@ -1,134 +1,1828 @@
 {
-  "nodes": [
-    {
-      "id": "Computer Science (CSE)",
-      "group": 1
-    },
-    {
-      "id": "Computer Engineering",
-      "group": 1
-    },
-    {
-      "id": "Data Science",
-      "group": 2
-    },
-    {
-      "id": "Digital Arts and Sciences",
-      "group": 1
-    },
-    {
-      "id": "English",
-      "group": 2
-    }
-  ],
-  "Computer Science (CSE)": [
-    {
-      "source": "Computer Science (CSE)",
-      "target": "Computer Engineering",
-      "value": 4
-    },
-    {
-      "source": "Computer Science (CSE)",
-      "target": "Data Science",
-      "value": 3
-    },
-    {
-      "source": "Computer Science (CSE)",
-      "target": "Digital Arts and Sciences",
-      "value": 3
-    },
-    {
-      "source": "Computer Science (CSE)",
-      "target": "English",
-      "value": 1
-    }
-  ],
-  "Computer Engineering": [
-    {
-      "source": "Computer Engineering",
-      "target": "Computer Science (CSE)",
-      "value": 5
-    },
-    {
-      "source": "Computer Engineering",
-      "target": "Data Science",
-      "value": 5
-    },
-    {
-      "source": "Computer Engineering",
-      "target": "Digital Arts and Sciences",
-      "value": 3
-    },
-    {
-      "source": "Computer Engineering",
-      "target": "English",
-      "value": 1
-    }
-  ],
-  "Data Science": [
-    {
-      "source": "Data Science",
-      "target": "Computer Engineering",
-      "value": 4
-    },
-    {
-      "source": "Data Science",
-      "target": "Computer Science (CSE)",
-      "value": 5
-    },
-    {
-      "source": "Data Science",
-      "target": "Digital Arts and Sciences",
-      "value": 3
-    },
-    {
-      "source": "Data Science",
-      "target": "English",
-      "value": 1
-    }
-  ],
-  "Digital Arts and Sciences": [
-    {
-      "source": "Digital Arts and Sciences",
-      "target": "Computer Engineering",
-      "value": 4
-    },
-    {
-      "source": "Digital Arts and Sciences",
-      "target": "Computer Science (CSE)",
-      "value": 5
-    },
-    {
-      "source": "Digital Arts and Sciences",
-      "target": "Data Science",
-      "value": 3
-    },
-    {
-      "source": "Digital Arts and Sciences",
-      "target": "English",
-      "value": 1
-    }
-  ],
-  "English": [
-    {
-      "source": "English",
-      "target": "Computer Engineering",
-      "value": 1
-    },
-    {
-      "source": "English",
-      "target": "Computer Science (CSE)",
-      "value": 1
-    },
-    {
-      "source": "English",
-      "target": "Data Science",
-      "value": 1
-    },
-    {
-      "source": "English",
-      "target": "Digital Arts and Sciences",
-      "value": 1
-    }
-  ]
+    "nodes": [
+      {
+        "id": "Data Science",
+        "group": 2
+      },
+      {
+        "id": "Computer Science (CSE)",
+        "group": 1
+      },
+      {
+        "id": "Digital Arts and Sciences (BS)",
+        "group": 1
+      },
+      {
+        "id": "Computer Engineering",
+        "group": 1
+      },
+      {
+        "id": "English",
+        "group": 2
+      },
+      {
+        "id": "History",
+        "group": 2
+      },
+      {
+        "id": "Physics (BS)",
+        "group": 2
+      },
+      {
+        "id": "Statistics",
+        "group": 2
+      },
+      {
+        "id": "Mathematics (BS)",
+        "group": 2
+      },
+      {
+        "id": "Digital Arts and Sciences (BA)",
+        "group": 3
+      },
+      {
+        "id": "Computer Science (CSC)",
+        "group": 2
+      },
+      {
+        "id": "Economics",
+        "group": 2
+      },
+      {
+        "id": "Biomedical Engineering",
+        "group": 1
+      },
+      {
+        "id": "Industrial and Systems Engineering",
+        "group": 1
+      },
+      {
+        "id": "Business Administration - General Studies",
+        "group": 4
+      },
+      {
+        "id": "Information Systems",
+        "group": 4
+      },
+      {
+        "id": "Graphic Design",
+        "group": 3
+      },
+      {
+        "id": "Geography (BA)",
+        "group": 2
+      },
+      {
+        "id": "Sports Management",
+        "group": 5
+      }
+    ],
+    "Data Science": [
+      {
+        "source": "Data Science",
+        "target": "Computer Science (CSE)",
+        "value": 5
+      },
+      {
+        "source": "Data Science",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 3
+      },
+      {
+        "source": "Data Science",
+        "target": "Computer Engineering",
+        "value": 4
+      },
+      {
+        "source": "Data Science",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Statistics",
+        "value": 8
+      },
+      {
+        "source": "Data Science",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Data Science",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Computer Science (CSC)",
+        "value": 4
+      },
+      {
+        "source": "Data Science",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Biomedical Engineering",
+        "value": 2
+      },
+      {
+        "source": "Data Science",
+        "target": "Industrial and Systems Engineering",
+        "value": 4
+      },
+      {
+        "source": "Data Science",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Data Science",
+        "target": "Geography (BA)",
+        "value": 3
+      },
+      {
+        "source": "Data Science",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Computer Science (CSE)": [
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Data Science",
+        "value": 5
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 9
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Computer Engineering",
+        "value": 9
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Physics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Statistics",
+        "value": 5
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Computer Science (CSC)",
+        "value": 8
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Biomedical Engineering",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Industrial and Systems Engineering",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSE)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Digital Arts and Sciences (BS)": [
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Data Science",
+        "value": 3
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Computer Science (CSE)",
+        "value": 9
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Computer Engineering",
+        "value": 10
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Physics (BS)",
+        "value": 5
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Statistics",
+        "value": 5
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Computer Science (CSC)",
+        "value": 8
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Biomedical Engineering",
+        "value": 5
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Industrial and Systems Engineering",
+        "value": 5
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BS)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Computer Engineering": [
+      {
+        "source": "Computer Engineering",
+        "target": "Data Science",
+        "value": 4
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Computer Science (CSE)",
+        "value": 9
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 10
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Physics (BS)",
+        "value": 6
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Statistics",
+        "value": 5
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Computer Science (CSC)",
+        "value": 9
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Biomedical Engineering",
+        "value": 7
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Industrial and Systems Engineering",
+        "value": 7
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Engineering",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "English": [
+      {
+        "source": "English",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "English",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "History": [
+      {
+        "source": "History",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "History",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Physics (BS)": [
+      {
+        "source": "Physics (BS)",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Computer Science (CSE)",
+        "value": 4
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 5
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Computer Engineering",
+        "value": 6
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Statistics",
+        "value": 5
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Computer Science (CSC)",
+        "value": 3
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Biomedical Engineering",
+        "value": 4
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Industrial and Systems Engineering",
+        "value": 5
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Physics (BS)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Statistics": [
+      {
+        "source": "Statistics",
+        "target": "Data Science",
+        "value": 8
+      },
+      {
+        "source": "Statistics",
+        "target": "Computer Science (CSE)",
+        "value": 5
+      },
+      {
+        "source": "Statistics",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 5
+      },
+      {
+        "source": "Statistics",
+        "target": "Computer Engineering",
+        "value": 5
+      },
+      {
+        "source": "Statistics",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Physics (BS)",
+        "value": 5
+      },
+      {
+        "source": "Statistics",
+        "target": "Mathematics (BS)",
+        "value": 6
+      },
+      {
+        "source": "Statistics",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Computer Science (CSC)",
+        "value": 6
+      },
+      {
+        "source": "Statistics",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Biomedical Engineering",
+        "value": 5
+      },
+      {
+        "source": "Statistics",
+        "target": "Industrial and Systems Engineering",
+        "value": 7
+      },
+      {
+        "source": "Statistics",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Statistics",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Mathematics (BS)": [
+      {
+        "source": "Mathematics (BS)",
+        "target": "Data Science",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Computer Science (CSE)",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Computer Engineering",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Physics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Statistics",
+        "value": 6
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Computer Science (CSC)",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Biomedical Engineering",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Industrial and Systems Engineering",
+        "value": 4
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Mathematics (BS)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Digital Arts and Sciences (BA)": [
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Digital Arts and Sciences (BA)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Computer Science (CSC)": [
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Data Science",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Computer Science (CSE)",
+        "value": 8
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 8
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Computer Engineering",
+        "value": 9
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Physics (BS)",
+        "value": 3
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Statistics",
+        "value": 6
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Biomedical Engineering",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Industrial and Systems Engineering",
+        "value": 4
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Computer Science (CSC)",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Economics": [
+      {
+        "source": "Economics",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Business Administration - General Studies",
+        "value": 5
+      },
+      {
+        "source": "Economics",
+        "target": "Information Systems",
+        "value": 5
+      },
+      {
+        "source": "Economics",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Economics",
+        "target": "Geography (BA)",
+        "value": 3
+      },
+      {
+        "source": "Economics",
+        "target": "Sports Management",
+        "value": 2
+      }
+    ],
+    "Biomedical Engineering": [
+      {
+        "source": "Biomedical Engineering",
+        "target": "Data Science",
+        "value": 2
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Computer Science (CSE)",
+        "value": 4
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 5
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Computer Engineering",
+        "value": 7
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Physics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Statistics",
+        "value": 5
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Computer Science (CSC)",
+        "value": 4
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Industrial and Systems Engineering",
+        "value": 6
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Biomedical Engineering",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Industrial and Systems Engineering": [
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Data Science",
+        "value": 4
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Computer Science (CSE)",
+        "value": 4
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 5
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Computer Engineering",
+        "value": 7
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Physics (BS)",
+        "value": 5
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Statistics",
+        "value": 7
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Mathematics (BS)",
+        "value": 4
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Computer Science (CSC)",
+        "value": 4
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Biomedical Engineering",
+        "value": 6
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Industrial and Systems Engineering",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Business Administration - General Studies": [
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Economics",
+        "value": 5
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Information Systems",
+        "value": 10
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Geography (BA)",
+        "value": 3
+      },
+      {
+        "source": "Business Administration - General Studies",
+        "target": "Sports Management",
+        "value": 2
+      }
+    ],
+    "Information Systems": [
+      {
+        "source": "Information Systems",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Economics",
+        "value": 5
+      },
+      {
+        "source": "Information Systems",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Business Administration - General Studies",
+        "value": 10
+      },
+      {
+        "source": "Information Systems",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Information Systems",
+        "target": "Geography (BA)",
+        "value": 3
+      },
+      {
+        "source": "Information Systems",
+        "target": "Sports Management",
+        "value": 2
+      }
+    ],
+    "Graphic Design": [
+      {
+        "source": "Graphic Design",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Economics",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Business Administration - General Studies",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Information Systems",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Geography (BA)",
+        "value": 1
+      },
+      {
+        "source": "Graphic Design",
+        "target": "Sports Management",
+        "value": 1
+      }
+    ],
+    "Geography (BA)": [
+      {
+        "source": "Geography (BA)",
+        "target": "Data Science",
+        "value": 3
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Economics",
+        "value": 3
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Business Administration - General Studies",
+        "value": 3
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Information Systems",
+        "value": 3
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Geography (BA)",
+        "target": "Sports Management",
+        "value": 3
+      }
+    ],
+    "Sports Management": [
+      {
+        "source": "Sports Management",
+        "target": "Data Science",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Computer Science (CSE)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Digital Arts and Sciences (BS)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Computer Engineering",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "English",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "History",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Physics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Statistics",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Mathematics (BS)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Digital Arts and Sciences (BA)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Computer Science (CSC)",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Economics",
+        "value": 2
+      },
+      {
+        "source": "Sports Management",
+        "target": "Biomedical Engineering",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Industrial and Systems Engineering",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Business Administration - General Studies",
+        "value": 2
+      },
+      {
+        "source": "Sports Management",
+        "target": "Information Systems",
+        "value": 2
+      },
+      {
+        "source": "Sports Management",
+        "target": "Graphic Design",
+        "value": 1
+      },
+      {
+        "source": "Sports Management",
+        "target": "Geography (BA)",
+        "value": 3
+      }
+    ]
 }

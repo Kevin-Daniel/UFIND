@@ -22,11 +22,11 @@ const getProgram = async (req, res) => {
 
 // create new program
 const createProgram = async (req, res) => {
-    const {name, critical_tracking, core} = req.body
+    const {name, critical_tracking, core, college} = req.body
 
     // add program to db
     try {
-        const program = await Program.create({name, critical_tracking, core})
+        const program = await Program.create({name, critical_tracking, core, college})
         res.status(200).json(program)
     } catch(error) {
         res.status(400).json({error: error.message})

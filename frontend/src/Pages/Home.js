@@ -10,6 +10,7 @@ const Home = () => {
             <div className="flex justify-center">
                 <ForceGraph/>
             </div>
+            
             <Footer/>
         </div>
     )

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import { useProgramContext } from "../hooks/useProgramContext"
+import { useAuthContext } from '../hooks/useAuthContext';
 import '../output.css'
 
 const Info = props => {
+    const { user } = useAuthContext();
+    const [userCourses, setUserCourses] = useState([]);
+
     const { program, dispatch } = useProgramContext()
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -20,22 +24,47 @@ const Info = props => {
     }
 
     const listCourses = (courses) => {
-        return courses.map(course => <li className="text-[#C54418]" key={course}><b>{course}</b></li>);
+        return courses.map(course => <li className={userCourses.includes(course) ? "text-green-600" : "text-[#C54418]"} key={course}><b>{course}</b></li>);
     }
 
     const beta = (event) => {
         if(event.key === 'Enter') {
-            onSearch(event.target.value);     //[#285797]
+            onSearch(event.target.value);
         }
     }
 
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/userCourses/fetch', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
+
+            const json = await response.json();
+
+            if (response.ok) {
+                setUserCourses(json[0].core.concat(json[0].critical_tracking));
+            }
+        }
+
+        if (user != null) {
+            fetchData();
+        } else {
+            setUserCourses([])
+        }
+
+    }, [user]);
+
     return (
-        <div className="bg-[#FFFFFF] rounded-2xl h-full w-full pl-5 pt-5 pb-5 border-2 border-black">
-            <div class="max-w-md mx-auto mr-5">
+        <div className="grow">
+            <div className="max-w-md mx-auto">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <div className="relative">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
@@ -48,10 +77,10 @@ const Info = props => {
                 </div>
             </div><br></br>
             {program && 
-                <p className="text-3xl pb-3"><b>{program.name}</b></p>
+                <p className="text-2xl pb-3"><b>{program.name}</b></p>
             }
             {program &&
-                <div className="font-sans h-4/5 overflow-y-scroll">
+                <div className="font-sans h-[400px] overflow-y-scroll">
                     <span className="text-xl"><b>Critical Tracking Courses:</b></span>
                     <ul className="pl-2">{listCourses(program.critical_tracking)}</ul>
                     <br></br>
@@ -59,6 +88,13 @@ const Info = props => {
                     <ul className="pl-2">{listCourses(program.core)}</ul>
                 </div>
             }
+            <div className="mt-3">
+                <span className="text-green-600">&#9632;</span>
+                <span className="mr-5"> - Course Completed</span>
+                <span className="text-[#C54418]">&#9632;</span>
+                <span> - Course Not Completed</span>
+            </div>
+            
         </div>
 
     )
