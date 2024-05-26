@@ -10,24 +10,22 @@ const inactiveClass = "cursor-pointer inline-block p-4 rounded-t-lg hover:text-g
 const InteractionPanel = props => {
     const [tab, setTab] = useState("search");
     return (
-        <div className="bg-white rounded-2xl h-full w-full p-4 border-2 border-black">
+        <div className="flex flex-col bg-white rounded-2xl h-full w-full p-3 border-2 border-black">
             <div className="mb-3">
                 <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
                     <li className="me-2" onClick={() => setTab("search")}>
                         <span className={tab == "search" ? activeClass : inactiveClass}>Search</span>
                     </li>
                     <li className="me-2" onClick={() => setTab("user")}>
-                        <span className={tab == "user" ? activeClass : inactiveClass}>Your Courses</span>
+                        <span className={tab == "user" ? activeClass : inactiveClass}>Your Completed Courses</span>
                     </li>
                 </ul>
             </div>
             {tab == "search" &&
-                <div>
-                    <Info fetchProgram={props.fetchProgram} />
-                </div>
+                <Info fetchProgram={props.fetchProgram} />
             }
             {tab == "user" &&
-                <UserCourses />
+                <UserCourses fetchData={props.fetchData}/>
             }
         </div>
     )

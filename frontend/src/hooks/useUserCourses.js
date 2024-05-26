@@ -26,15 +26,14 @@ export const useUserCourses = () => {
                 setError(json.error);
                 return null;
             } else {
-                console.log("hook: " + json[0].courses);
-                return json[0].courses;
+                return json[0];
             }
         }
 
         
     }
 
-    const updateUserCourses = async (courses) => {
+    const updateUserCourses = async (core, critical_tracking) => {
         if (!user) {
             return false;
         } else {
@@ -45,7 +44,7 @@ export const useUserCourses = () => {
                 headers: { 'Content-Type': 'application/json',
                             'Authorization': `Bearer ${user.token}`
                 },
-                body: JSON.stringify({courses})
+                body: JSON.stringify({core, critical_tracking})
             });
 
             const json = await response.json();

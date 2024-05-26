@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import { useProgramContext } from "../hooks/useProgramContext"
+import { useAuthContext } from '../hooks/useAuthContext';
 import '../output.css'
 
 const Info = props => {
+    const { user } = useAuthContext();
+    const [userCourses, setUserCourses] = useState([]);
+
     const { program, dispatch } = useProgramContext()
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +24,7 @@ const Info = props => {
     }
 
     const listCourses = (courses) => {
-        return courses.map(course => <li className="text-[#C54418]" key={course}><b>{course}</b></li>);
+        return courses.map(course => <li className={userCourses.includes(course) ? "text-green-600" : "text-[#C54418]"} key={course}><b>{course}</b></li>);
     }
 
     const beta = (event) => {
@@ -29,9 +33,34 @@ const Info = props => {
         }
     }
 
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/userCourses/fetch', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
+
+            const json = await response.json();
+
+            if (response.ok) {
+                setUserCourses(json[0].core.concat(json[0].critical_tracking));
+            }
+        }
+
+        if (user != null) {
+            fetchData();
+        } else {
+            setUserCourses([])
+        }
+
+    }, [user]);
+
     return (
-        <div>
-            <div className="max-w-md mx-auto mr-5">
+        <div className="grow">
+            <div className="max-w-md mx-auto">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -48,10 +77,10 @@ const Info = props => {
                 </div>
             </div><br></br>
             {program && 
-                <p className="text-3xl pb-3"><b>{program.name}</b></p>
+                <p className="text-2xl pb-3"><b>{program.name}</b></p>
             }
             {program &&
-                <div className="flex-none h-1/2 font-sans overflow-y-scroll">
+                <div className="font-sans h-[400px] overflow-y-scroll">
                     <span className="text-xl"><b>Critical Tracking Courses:</b></span>
                     <ul className="pl-2">{listCourses(program.critical_tracking)}</ul>
                     <br></br>
@@ -59,6 +88,13 @@ const Info = props => {
                     <ul className="pl-2">{listCourses(program.core)}</ul>
                 </div>
             }
+            <div className="mt-3">
+                <span className="text-green-600">&#9632;</span>
+                <span className="mr-5"> - Course Completed</span>
+                <span className="text-[#C54418]">&#9632;</span>
+                <span> - Course Not Completed</span>
+            </div>
+            
         </div>
 
     )

@@ -15,7 +15,7 @@ const Main = styled("main")`
 `;
 
 export default function App() {
-  const {user} = useAuthContext;
+  const {user} = useAuthContext();
 
   return (
     <Router>

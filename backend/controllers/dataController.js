@@ -1,11 +1,16 @@
 const Data = require('../models/dataModel')
+const {
+    generateLinks,
+    generateData
+} = require('../controllers/populateController')
 
 const getData = async (req, res) => {
-    const data = await Data.find({})
+    const { _id } = req.user._id;
+    const data = await Data.find({_id})
     if(data.length > 0){
         res.status(200).json(data['0']);
     } else {
-        res.status(400).json({error: "No data found"})
+        return await generateData(req, res);
     }
     
 }

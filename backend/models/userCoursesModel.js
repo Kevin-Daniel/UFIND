@@ -7,7 +7,11 @@ const userCoursesSchema = new Schema({
         type: String,
         required: true
     },
-    courses: {
+    core: {
+        type: [String],
+        required: true
+    },
+    critical_tracking: {
         type: [String],
         required: true
     }

@@ -1,0 +1,190 @@
+{
+  "nodes": [
+    {
+      "id": "Computer Science (CSE)",
+      "group": 1
+    },
+    {
+      "id": "Computer Engineering",
+      "group": 1
+    },
+    {
+      "id": "Data Science",
+      "group": 2
+    },
+    {
+      "id": "Digital Arts and Sciences",
+      "group": 1
+    },
+    {
+      "id": "English",
+      "group": 2
+    },
+    {
+      "id": "History",
+      "group": 2
+    }
+  ],
+  "Computer Science (CSE)": [
+    {
+      "source": "Computer Science (CSE)",
+      "target": "Computer Engineering",
+      "value": 6
+    },
+    {
+      "source": "Computer Science (CSE)",
+      "target": "Data Science",
+      "value": 7
+    },
+    {
+      "source": "Computer Science (CSE)",
+      "target": "Digital Arts and Sciences",
+      "value": 8
+    },
+    {
+      "source": "Computer Science (CSE)",
+      "target": "English",
+      "value": 9
+    },
+    {
+      "source": "Computer Science (CSE)",
+      "target": "History",
+      "value": 10
+    }
+  ],
+  "Computer Engineering": [
+    {
+      "source": "Computer Engineering",
+      "target": "Computer Science (CSE)",
+      "value": 1
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "Data Science",
+      "value": 2
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "Digital Arts and Sciences",
+      "value": 3
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "English",
+      "value": 4
+    },
+    {
+      "source": "Computer Engineering",
+      "target": "History",
+      "value": 5
+    }
+  ],
+  "Data Science": [
+    {
+      "source": "Data Science",
+      "target": "Computer Engineering",
+      "value": 4
+    },
+    {
+      "source": "Data Science",
+      "target": "Computer Science (CSE)",
+      "value": 5
+    },
+    {
+      "source": "Data Science",
+      "target": "Digital Arts and Sciences",
+      "value": 3
+    },
+    {
+      "source": "Data Science",
+      "target": "English",
+      "value": 1
+    },
+    {
+      "source": "Data Science",
+      "target": "History",
+      "value": 5
+    }
+  ],
+  "Digital Arts and Sciences": [
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "Computer Engineering",
+      "value": 4
+    },
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "Computer Science (CSE)",
+      "value": 5
+    },
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "Data Science",
+      "value": 3
+    },
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "English",
+      "value": 1
+    },
+    {
+      "source": "Digital Arts and Sciences",
+      "target": "History",
+      "value": 5
+    }
+  ],
+  "English": [
+    {
+      "source": "English",
+      "target": "Computer Engineering",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Computer Science (CSE)",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Data Science",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "Digital Arts and Sciences",
+      "value": 1
+    },
+    {
+      "source": "English",
+      "target": "History",
+      "value": 5
+    }
+  ],
+  "History": [
+    {
+      "source": "History",
+      "target": "Computer Engineering",
+      "value": 1
+    },
+    {
+      "source": "History",
+      "target": "Computer Science (CSE)",
+      "value": 1
+    },
+    {
+      "source": "History",
+      "target": "Data Science",
+      "value": 1
+    },
+    {
+      "source": "History",
+      "target": "Digital Arts and Sciences",
+      "value": 1
+    },
+    {
+      "source": "History",
+      "target": "English",
+      "value": 5
+    }
+  ]
+}

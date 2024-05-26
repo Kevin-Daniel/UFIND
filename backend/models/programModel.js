@@ -12,6 +12,10 @@ const programSchema = new Schema({
     },
     core: {
         type: [String],
+    },
+    college: {
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 
